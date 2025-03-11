@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="reg.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Регистрация</h1>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="lastName">Фамилия:</label>
+                <input type="text" id="lastName" name="lastName" required minlength="2">
+            </div>
+            <div class="form-group">
+                <label for="firstName">Имя:</label>
+                <input type="text" id="firstName" name="firstName" required minlength="2">
+            </div>
+            <div class="form-group">
+                <label for="middleName">Отчество:</label>
+                <input type="text" id="middleName" name="middleName" required minlength="2">
+            </div>
+            <div class="form-group">
+                <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required minlength="5">
+            </div>
+            <div class="form-group">
+                <label for="phone">Номер телефона:</label>
+                <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+            </div>
+            <div class="consent-group">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">Я согласен на обработку персональных данных</label>
+                <a href="privacy-policy.html" target="_blank">(Политика конфиденциальности)</a>
+            </div>
+            <button type="submit" class="btn">Зарегистрироваться</button>
+        </form>
+        <div id="errorMessage" class="error-message"></div>
+        <a href="login.html"><button id="loginButton" class="btn secondary">Авторизация</button></a>
+    </div>
+    <script src="script-reg.js"></script>
+</body>
+</html>

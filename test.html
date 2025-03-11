@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест</title>
+    <style>
+        /* Сброс отступов и полей */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Стили для header */
+        header {
+            width: 100%;
+            background-color: #222;
+            padding: 10px 0;
+        }
+
+        /* Стили для контейнера */
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Стили для меню */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+            transition: transform 0.3s ease; /* Анимация сдвига */
+        }
+
+        /* Прижимаем иконку к правому краю */
+        #user-icon {
+            margin-left: auto; /* Прижимаем иконку к правому краю */
+        }
+
+        #user-icon img {
+            width: 24px; /* Фиксированная ширина */
+            height: 24px; /* Фиксированная высота */
+            object-fit: cover; /* Сохраняем пропорции */
+        }
+
+        /* Стили для кнопок регистрации и авторизации */
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+            opacity: 0; /* Начальная прозрачность */
+            transform: translateX(20px); /* Начальное смещение */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .auth-buttons.visible {
+            opacity: 1; /* Показываем кнопки */
+            transform: translateX(0); /* Убираем смещение */
+        }
+
+        .auth-btn {
+            background-color: #333; /* Темный фон */
+            color: #fff;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            width: 100px;
+            font-size: 14px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .auth-btn:hover {
+            background-color: #555; /* Изменение цвета при наведении */
+        }
+
+        /* Стили для сдвига меню */
+        .menu-shifted {
+            transform: translateX(-120px); /* Сдвигаем меню влево */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Логотип">
+            </div>
+            <nav>
+                <ul id="menu">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">Преимущества</a></li>
+                    <li><a href="#">Топливо</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li>
+                        <a href="#" id="user-icon"><img src="images/user.png" alt="abc"></a>
+                    </li>
+                    <li class="auth-buttons">
+                        <a href="#" class="btn auth-btn">Регистрация</a>
+                        <a href="#" class="btn auth-btn">Авторизация</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const userIcon = document.getElementById('user-icon');
+            const menu = document.getElementById('menu');
+            const authButtons = document.querySelector('.auth-buttons');
+
+            // Обработка клика по иконке пользователя
+            userIcon.addEventListener('click', function(event) {
+                event.preventDefault(); // Предотвращаем переход по ссылке
+
+                // Переключаем классы для сдвига меню и показа кнопок
+                menu.classList.toggle('menu-shifted');
+                authButtons.classList.toggle('visible');
+            });
+
+            // Закрываем кнопки при клике вне области
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('#user-icon') && !event.target.closest('.auth-buttons')) {
+                    menu.classList.remove('menu-shifted');
+                    authButtons.classList.remove('visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
