@@ -1,0 +1,583 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    color: #fff;
+}
+
+/* Стили для уведомления */
+.notification-login {
+    position: fixed;
+    top: -100px; /* Начальное положение за пределами экрана */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: top 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 1000;
+}
+
+.notification-login.show {
+    top: 20px; /* Плавное появление сверху */
+    opacity: 1;
+    visibility: visible;
+}
+
+.notification-login.hide {
+    top: -100px; /* Плавное исчезновение вверх */
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Скрываем элементы по умолчанию */
+.hidden {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Показываем элементы при добавлении класса .visible */
+.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a {
+    padding: 10px 15px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    border-color: #007BFF;
+}
+
+nav ul li a:active {
+    background-color: #4baab7;
+    color: #fff;
+}
+
+nav ul li:last-child a img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Стили для меню пользователя */
+.user-menu {
+    position: relative;
+    margin-left: auto;
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.user-avatar:hover {
+    transform: scale(1.1);
+}
+
+.auth-status {
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+    border: 2px solid #fff;
+    transition: all 0.3s ease;
+}
+
+.auth-status.authenticated {
+    background-color: #4CAF50;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.user-dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f8f9fa;
+    color: #0056b3;
+}
+
+.dropdown-content i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-divider {
+    height: 1px;
+    margin: 5px 0;
+    background-color: #e9ecef;
+}
+
+/* Анимация иконки пользователя при авторизации */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.authenticated-avatar {
+    animation: pulse 0.5s ease;
+    border-color: #4CAF50 !important;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+.hero-content {
+    width: 50%;
+    text-align: left;
+}
+
+.hero-image {
+    width: 50%;
+    text-align: right;
+}
+
+.hero-image img {
+    width: 80%;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.btn-main {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.advantages {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #111;
+    color: #fff;
+}
+
+.advantages h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.advantages p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #ccc;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.advantage {
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.advantage h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.toggle-details {
+    background: none;
+    border: none;
+    color: #007BFF;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.toggle-details:hover {
+    color: #4baab7;
+}
+
+.details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.details.open {
+    max-height: 500px; /* Увеличьте, если нужно больше места */
+    padding: 20px 0;
+}
+
+.details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.details ul li {
+    font-size: 1em;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.close-details {
+    background: #007BFF;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.close-details:hover {
+    background: #4baab7;
+}
+
+.fuel {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.fuel-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.fuel-item {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #222;
+}
+
+.fuel-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.cta {
+padding: 50px 0;
+}
+
+.cta .container {
+display: flex;
+justify-content: center; /* Центрируем контейнер по горизонтали */
+align-items: center; /* Центрируем контейнер по вертикали */
+}
+
+.cta-images {
+display: flex;
+align-items: flex-start; /* Выравниваем по верхнему краю */
+gap: 20px; /* Расстояние между блоками */
+}
+
+.cta-left {
+display: flex;
+flex-direction: column; /* Картинки в колонку (первая над второй) */
+gap: 20px; /* Расстояние между картинками */
+}
+
+.cta-right {
+display: flex;
+align-items: center; /* Выравниваем по центру по вертикали */
+height: 100%; /* Занимает всю высоту родителя */
+align-self: center;
+}
+
+.cta-left img,
+.cta-right img {
+width: 100%;
+height: auto;
+max-width: 500px;
+border-radius: 5px;
+}
+
+.testimonials {
+    padding: 50px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.testimonial {
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.testimonial p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.testimonial .author {
+    font-weight: bold;
+    color: #007BFF;
+    margin-top: 10px;
+}
+
+.contact-social {
+    padding: 50px 0;
+    text-align: center;
+    background-color: transparent; /* Убираем фон */
+    color: #fff;
+}
+
+.contact-social h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contact-social p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.contact-details {
+    margin-bottom: 30px;
+}
+
+.contact-details p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.contact-details i {
+    font-size: 1.2em;
+    color: #007BFF;
+}
+
+.social-media {
+    margin-top: 30px;
+}
+
+.social-media p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #007BFF;
+    transform: scale(1.1);
+}
+
+.social-icon:active {
+    background-color: #4baab7;
+    transform: scale(0.9);
+}
+
+.footer {
+    background-color: #222;
+    padding: 20px 0;
+    text-align: center;
+    color: #888;
+}
+
+.footer a {
+    color: #888;
+}
+
+/* Добавьте в конец файла: */
+.user-menu .authenticated {
+    display: flex;
+    align-items: center;
+}
+
+.user-menu .authenticated a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.user-menu:hover .dropdown-content {
+    display: block;
+}
+
+.user-menu a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.user-menu i {
+    margin-right: 5px;
+    font-size: 1.2em;
+}

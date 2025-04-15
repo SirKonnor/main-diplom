@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование профиля</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="edit-profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <script>
+        if (!JSON.parse(sessionStorage.getItem('auth') || '{}').isAuthenticated) {
+            window.location.replace('login.html');
+        }
+    </script>
+    
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Дизель Сити">
+            </div>
+            <nav>
+                <ul id="menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="#">Преимущества</a></li>
+                    <li><a href="#">Топливо</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li class="user-menu">
+                        <a href="profile.html" id="user-icon">
+                            <img src="images/user2.png" alt="user-icon">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <div class="sidebar">
+            <button class="sidebar-btn" onclick="window.location.href='profile.html'" title="Профиль">
+                <i class="fas fa-user"></i>
+            </button>
+            <button class="sidebar-btn" title="Заказы">
+                <i class="fas fa-shopping-bag"></i>
+            </button>
+            <button class="sidebar-btn" title="Сообщения">
+                <i class="fas fa-envelope"></i>
+            </button>
+            
+            <div class="sidebar-bottom">
+                <button class="sidebar-btn" title="Настройки">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button id="logoutBtn" class="sidebar-btn" title="Выход">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <h1>Редактирование профиля</h1>
+            
+            <form id="profileEditForm">
+                <!-- Смена аватара -->
+                <div class="form-group">
+                    <label>Фото профиля:</label>
+                    <div class="avatar-edit">
+                        <img id="avatarPreview" src="images/default-avatar.png" alt="Аватар">
+                        <input type="file" id="avatarUpload" accept="image/*">
+                        <button type="button" id="changeAvatarBtn">Изменить</button>
+                    </div>
+                </div>
+
+                <!-- Основная информация -->
+                <div class="form-group">
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone" placeholder="+7 (XXX) XXX-XX-XX">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Ваш email">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Адрес:</label>
+                    <input type="text" id="address" placeholder="Ваш адрес">
+                </div>
+
+                <!-- Социальные сети -->
+                <div class="form-group">
+                    <label for="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp:</label>
+                    <input type="text" id="whatsapp" placeholder="Номер в формате 79123456789">
+                    <small class="form-hint">Только цифры номера (например: 79123456789)</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="vk"><i class="fab fa-vk"></i> ВКонтакте:</label>
+                    <input type="text" id="vk" placeholder="Имя пользователя или ID">
+                    <small class="form-hint">Например: id12345678 или username</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telegram"><i class="fab fa-telegram"></i> Telegram:</label>
+                    <input type="text" id="telegram" placeholder="Имя пользователя">
+                    <small class="form-hint">Без @ (например: username)</small>
+                </div>
+
+                <!-- Смена пароля -->
+                <div class="form-group">
+                    <label>Смена пароля:</label>
+                    <div class="password-field">
+                        <input type="password" id="newPassword" placeholder="Новый пароль">
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                    <div class="password-field">
+                        <input type="password" id="confirmPassword" placeholder="Повторите пароль">
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                    <p id="passwordError" class="error-message"></p>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="save-btn">Сохранить изменения</button>
+                    <button type="button" class="cancel-btn" onclick="window.location.href='profile.html'">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container-footer">
+            <p>&copy; 2024 Дизель Сити. Все права защищены.</p>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Условия использования</a>
+        </div>
+    </footer>
+
+    <script src="script-edit-profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div id="notification-reg" class="notification-reg">Регистрация прошла успешно!</div>
+    <div class="container">
+        <h1>Авторизация</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label class="remember-me">
+                    <input type="checkbox" id="rememberMe" name="rememberMe"> Запомнить меня
+                </label>
+            </div>
+            <button type="submit" class="btn">Войти</button>
+        </form>
+        <div id="errorMessage" class="error-message"></div>
+        <a href="reg.html"><button id="registerButton" class="btn secondary">Регистрация</button></a>
+    </div>
+    <script src="script-login.js"></script>
+</body>
+</html>
