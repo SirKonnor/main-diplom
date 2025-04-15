@@ -1,0 +1,226 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    color: #fff;
+}
+    
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .header-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px 20px;
+        box-sizing: border-box;
+    }
+    
+    .logo {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    nav a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    nav ul li a {
+        padding: 10px 15px;
+        display: inline-block;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        border-radius: 5px;
+    }
+    
+    nav ul li a:hover {
+        border-color: #007BFF;
+    }
+    
+    nav ul li a:active {
+        background-color: #4baab7;
+        color: #fff;
+    }
+    
+    nav ul li:last-child a img {
+        width: 24px;
+        height: 24px;
+    }
+
+
+    .container {
+        display: flex;
+        width: 80%;
+        max-width: 1200px;
+        padding: 20px;
+    }
+    .text-content {
+        width: 50%;
+        padding-right: 20px;
+    }
+    h3 {
+        text-align: left;
+        color: #007BFF;
+    }
+
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        margin-top: 160px; /* Увеличил отступ сверху в 2 раза */
+        margin-bottom: 20px;
+        font-size: 32px;
+    }
+
+    h1 {
+        text-align: left;
+        color: #ffffff;
+        margin-bottom: 20px;
+        font-size: 64px; /* Увеличил размер заголовка */
+    }
+    .content p {
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 18px; /* Увеличил размер текста */
+    }
+    .button {
+        display: inline-block;
+        padding: 15px 30px; /* Увеличил размер кнопки */
+        font-size: 16px;
+        color: #007BFF; /* Цвет текста */
+        text-decoration: none;
+        border: 1px solid #fff; /* Тонкая белая рамка */
+        border-radius: 5px;
+        text-align: center;
+        transition: all 0.3s ease; /* Анимация для всех свойств */
+        background-color: transparent; /* Убрал фон */
+    }
+    .button:hover {
+        background-color: rgba(255, 255, 255, 0.1); /* Легкий фон при наведении */
+        border-color: #007BFF; /* Изменение цвета рамки при наведении */
+        transform: scale(1.05); /* Увеличение кнопки при наведении */
+    }
+    .button:active {
+        transform: scale(0.95); /* Уменьшение кнопки при нажатии */
+        background-color: rgba(0, 123, 255, 0.1); /* Легкий фон при нажатии */
+    }
+    .image-content {
+        width: 50%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .circle {
+        border-radius: 50%;
+        background-color: #e0e0e0;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .circle.large {
+        width: 350px;
+        height: 350px;
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .circle.small {
+        width: 250px; /* 200px / 2 = 100px */
+        height: 250px;
+        top: 40%; /* Расположение сверху */
+        left: 80%; /* Расположение справа */
+        transform: translate(-50%, -50%);
+    }
+    .circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .map-contacts {
+        display: flex;
+        margin-top: 20px;
+    }
+    .map {
+        width: 50%;
+        height: 600px;
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .contacts {
+        width: 40%;
+        padding-left: 20px;
+    }
+    .contacts h3 {
+        font-size: 24px;
+        color: #007BFF;
+        margin-bottom: 15px;
+    }
+    .contacts p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    .whatsapp-button {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #25D366;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .whatsapp-button img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+    .whatsapp-button:hover {
+        background-color: #128C7E;
+        transform: scale(1.05);
+    }
+    .whatsapp-button:active {
+        transform: scale(0.95);
+    }
+
+    .container-footer {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .footer {
+        background-color: #222;
+        padding: 20px 0;
+        text-align: center;
+        color: #888;
+    }
+    
+    .footer a {
+        color: #888;
+    }
